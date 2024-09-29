@@ -35,6 +35,10 @@ LOCAL_APPS = [
     'apps.posts',
 ]
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
+
 THIRD_APPS = []
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_APPS

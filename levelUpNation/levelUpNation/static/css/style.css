@@ -10,7 +10,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('../images/game-console.jpg');
+    background-image: url('../img/game-console.jpg');
     background-size: cover;
 }
 
