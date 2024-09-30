@@ -1,14 +1,12 @@
-from django.shortcuts import render
-from .models import Posts
-
-# Vista Basada en Funciones
-
-def posts(request):
-    ctx = {}
-    noticias = Posts.objects.all()
-    ctx["noticias"] = noticias
-    return render(request, "posts/index.html", ctx)
+from django.http import HttpResponse
+from django.template import loader
 
 
-def login(request):
-    return render(request, "usuarios/login.html")
+def index(request):
+    template = loader.get_template("home.html")
+    context = {"title":"Level Up Nation"}
+    return HttpResponse(template.render(context, request))
+
+def post(request):
+    template = loader.get_template("post.html")
+    return HttpResponse(template.render({}, request))

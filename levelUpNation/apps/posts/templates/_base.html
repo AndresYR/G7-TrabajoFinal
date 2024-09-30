@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/page.css' %}"/>
+    <title></title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container-information">
+        <div class="icon-logo">
+          <ion-icon name="game-controller-outline"></ion-icon>
+        </div>
+        <h2>
+            {% block title %}
+
+            {% endblock title %}
+        </h2>
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Sobre Nosotros</a></li>
+            <li><a href="#">Contactanos</a></li>
+            <li><a href="login.html" class="btn-sign-in">Iniciar Sesión</a></li>
+          </ul>
+          <div class="search-container">
+            <input
+              type="search"
+              placeholder="Buscar tags, posts..."
+              class="search-input"
+            />
+            <button class="search-button">Buscar</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      {% block main %}
+
+      {% endblock main %}
+    </main>
+  </body>
+</html>
