@@ -56,6 +56,16 @@ h2 {
   font-weight: 500;
 }
 
+.register-link {
+  background-color: #008f8a;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.register-link:hover {
+  background-color: #00b5ad;
+}
+
 .icon-logo ion-icon {
   margin-top: 10px;
   color: red;
@@ -151,7 +161,8 @@ main {
   color: #fff;
   display: inline;
   width: 40%;
-  padding: 5px;
+  padding: 8px 1px;
+  margin-top: 10px;
   border: 1px solid rgb(28, 71, 69);
   border-radius: 5px;
   font-weight: 400;
@@ -166,19 +177,6 @@ main {
   font-size: small;
 }
 
-/* Responsive */
-
-@media screen and (max-width: 750px) {
-  html {
-    font-size: 10px;
-  }
-}
-
-@media screen and (max-width: 780px) {
-  html {
-    font-size: 12px;
-  }
-}
 
 .card {
   position: relative;
@@ -191,10 +189,16 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  transition: transform .2s;
+  cursor: pointer;
   h4,
   p {
     z-index: 2;
   }
+}
+
+.card:hover {
+  transform: scale(1.1);
 }
 
 .card-container {
@@ -202,7 +206,8 @@ main {
   flex-wrap: wrap;
   width: 100%;
   margin-inline: auto;
-  gap: 10px;
+  margin-top: 20px;
+  gap: 30px;
 }
 
 .smoke {
@@ -215,4 +220,23 @@ main {
   height: 100%;
   width: 100%;
   border-radius: 5px;
+}
+
+
+
+
+
+
+/* Responsive */
+
+@media screen and (max-width: 750px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  html {
+    font-size: 12px;
+  }
 }
