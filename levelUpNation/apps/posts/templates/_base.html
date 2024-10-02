@@ -33,10 +33,10 @@
         </h2>
         <nav class="navbar">
           <ul class="navbar-list">
-            <li><a href="{% url 'inicio' %}">Inicio</a></li>
-            <li><a href="{% url 'noticias' %}">ultimas noticias</a></li>
-            <li><a href="#">Contactanos</a></li>
-            <li><a href="{% url 'login' %}" class="btn-sign-in">Iniciar Sesión</a></li>
+            <li><a class="navbar-link {% if request.path == '/' %}active{% endif %}" href="{% url 'inicio' %}">Inicio</a></li>
+            <li><a class="navbar-link {% if request.path == '/post/' %}active{% endif %}" href="{% url 'noticias' %}">ultimas noticias</a></li>
+            <li><a class="navbar-link {% if request.path == '' %}active{% endif %}" href="#">Contactanos</a></li>
+            <li><a href="{% url 'login' %}" class="btn-sign-in {% if request.path == '' %}active{% endif %}">Iniciar Sesión</a></li>
           </ul>
           <div class="search-container">
             <input

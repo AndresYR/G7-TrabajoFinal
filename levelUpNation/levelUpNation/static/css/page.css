@@ -50,7 +50,7 @@ h2 {
   margin-left: 20px;
 }
 
-.navbar li a {
+.navbar-link {
   color: white;
   text-decoration: none;
   font-weight: 500;
@@ -222,7 +222,9 @@ main {
   border-radius: 5px;
 }
 
-
+.active {
+  color: #b3ff00;
+}
 
 
 
