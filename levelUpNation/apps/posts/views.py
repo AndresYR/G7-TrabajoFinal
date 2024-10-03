@@ -14,3 +14,7 @@ def post(request):
 def login(request):
     template = loader.get_template("login.html")
     return HttpResponse(template.render({}, request))
+
+def contact(request):
+    template = loader.get_template("contact_us.html")
+    return HttpResponse(template.render({}, request))

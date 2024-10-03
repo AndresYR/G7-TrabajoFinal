@@ -1,0 +1,29 @@
+{% extends '_base.html'%}
+
+
+
+{% block title %}  
+  Contactanos
+{% endblock title %}
+
+
+{% block main %}
+    <div class="form-container-contact">
+        <form class="form form-contact" novalidate>
+            <div>
+                <label>
+                    <input type="text" placeholder="Nombre Usuario" name="userName" >
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="email" placeholder="Correo Electrónico" name="userEmail" >
+                </label>
+            </div>
+           <div>
+            <textarea id="subject" name="subject" placeholder="Mensaje:" style="height:200px"></textarea>
+           </div>
+            <input type="submit" value="Enviar formulario">
+        </form>
+    </div>
+{% endblock main %} 

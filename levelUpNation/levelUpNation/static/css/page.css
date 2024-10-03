@@ -73,8 +73,9 @@ h2 {
 }
 
 .btn-logo,
-.btn-sign-in {
+.btn-sign-up {
   background-color: #00b5ad;
+  text-decoration: none;
   border: none;
   color: white;
   padding: 8px 15px;
@@ -146,15 +147,8 @@ main {
   width: 30%;
 }
 
-.tittle {
-  border-bottom: 3px solid #888;
+.title {
   width: 400px;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0)
-  );
 }
 
 .category-list a {
@@ -222,7 +216,9 @@ main {
   border-radius: 5px;
 }
 
-
+.active {
+  color: #b3ff00;
+}
 
 
 

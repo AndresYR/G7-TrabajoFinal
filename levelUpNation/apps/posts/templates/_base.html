@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{% static 'css/page.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
     <title></title>
   </head>
   <body>
@@ -33,10 +34,10 @@
         </h2>
         <nav class="navbar">
           <ul class="navbar-list">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Sobre Nosotros</a></li>
-            <li><a href="#">Contactanos</a></li>
-            <li><a href="#" class="register-link">Registrarse</a></li>
+            <li><a class="navbar-link {% if request.path == '/' %}active{% endif %}" href="{% url 'inicio' %}">Inicio</a></li>
+            <li><a class="navbar-link {% if request.path == '/post/' %}active{% endif %}" href="{% url 'noticias' %}">ultimas noticias</a></li>
+            <li><a class="navbar-link {% if request.path == '' %}active{% endif %}" href="#">Contactanos</a></li>
+            <li><a href="{% url 'login' %}" class="btn-sign-in {% if request.path == '' %}active{% endif %}">Iniciar Sesión</a></li>
           </ul>
           <div class="search-container">
             <input
