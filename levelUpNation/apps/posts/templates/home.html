@@ -34,5 +34,17 @@
           <p>Los ultimos juegos que puedes descargar en el mercado</p>
           <span class="smoke"></span>
         </div>
+        {% if latest_posts_list %}
+          {% for post in latest_posts_list %}
+            <div class="card">
+              <img 
+                class = "image"
+                src="{{post.imagen.url}}" alt="404">
+              <h4>{{post.titulo}}</h4>
+              <span class="smoke"></span>
+            </div>
+          
+          {% endfor %}
+        {% endif %}
       </section>
 {% endblock main %}

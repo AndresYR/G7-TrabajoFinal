@@ -217,6 +217,7 @@ main {
   border-radius: 5px;
 }
 
+<<<<<<< HEAD
 .active {
   color: #b3ff00;
 }
@@ -236,4 +237,9 @@ main {
   html {
     font-size: 12px;
   }
+=======
+.image {
+  background-size: 30%;
+  /* background-repeat: no-repeat; */
+>>>>>>> dev-andres
 }
