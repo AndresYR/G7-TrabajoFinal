@@ -37,7 +37,7 @@
           <ul class="navbar-list">
             <li><a class="navbar-link {% if request.path == '/post/' %}active{% endif %}" href="{% url 'noticias' %}">Últimas Noticias</a></li>
             <li><a class="navbar-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'contact' %}">Contactanos</a></li>
-            <li><a href="{% url 'login' %}" class="btn-sign-up {% if request.path == '/login/' %}active{% endif %}">Registrarse</a></li>
+            <li><a href="{% url 'register' %}" class="btn-sign-up {% if request.path == '/register/' %}active{% endif %}">Registrarse</a></li>
             <li><a href="{% url 'login' %}" class="btn-sign-in {% if request.path == '/login/' %}active{% endif %}">Iniciar Sesión</a></li>
           </ul>
           <div class="search-container">

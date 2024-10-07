@@ -159,50 +159,7 @@ body {
 }
 
 
-.hide {
-    position: absolute;
-    transform: translateY(-300%);
-}
 
-
-
-/* Personalizacion Alertas */
-.form div .alerta {
-    width: 290px;
-    text-align: left;
-    border-radius: 7px;
-    margin-bottom: 10px;
-    font-size: .8rem;
-}
-
-
-.form .alertaError {
-    display: block;
-    background-color: #f66060;
-    padding: .5rem .1rem;
-    margin-top: 10px;
-    font-weight: 500;
-    font-size: .8rem;
-}
-
-.form > .alerta-error,
-.form > .alerta-exito {
-    display: none;
-}
-
-.form .alertaExito {
-    display: block;
-    background-color: #60f68d;
-    padding: .5rem .1rem;
-    margin-top: 10px;
-    font-weight: 500;
-    font-size: .8rem;
-}
-
-
-.form .error {
-    outline: solid 2px #9d2222;
-}
 
 /* Respoinsive Form */
 @media screen and (max-width:750px) {

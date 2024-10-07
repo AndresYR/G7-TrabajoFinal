@@ -216,6 +216,12 @@ main {
   background-position: center;
 }
 
+.card-4 {
+  background-image: url("../../static/img/the_last_of_us.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
 .card:hover {
   transform: scale(1.1);
 }
