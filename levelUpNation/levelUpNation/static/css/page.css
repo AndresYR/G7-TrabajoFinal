@@ -158,7 +158,7 @@ main {
 }
 
 
-.category-list a {
+.category-list button{
   color: #fff;
   display: inline;
   width: 40%;
@@ -188,13 +188,12 @@ main {
   background-size: cover;
   border-radius: 5px;
   color: whitesmoke;
-  display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  display: flex;
+  justify-content: flex-start;
   transition: transform .2s;
   cursor: pointer;
-  h4,
-  p {
+  h4, p {
     z-index: 2;
   }
 }
@@ -235,7 +234,7 @@ main {
   gap: 30px;
 }
 
-.smoke {
+.smoke { 
   position: absolute;
   background-image: linear-gradient(
     to top,
@@ -246,11 +245,12 @@ main {
   width: 100%;
   border-radius: 5px;
 }
+ 
 
 footer {
   text-align: center;
   background-color: #000000a5;
-  height: 200px;
+  height: 250px;
   width: 100%;
 }
 
@@ -288,7 +288,6 @@ footer {
 
 
 
-
 @media screen and (max-width:750px) {
   html {
       font-size: 15px;
@@ -306,5 +305,11 @@ footer {
   html {
       font-size: 10px;
   }
-
 } 
+
+
+/* .image {
+  height: auto;
+  object-position: center;
+} */
+

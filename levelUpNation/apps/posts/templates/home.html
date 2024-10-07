@@ -7,11 +7,32 @@
 
 {% block main %}
       <aside class="wrapper category-list">
-        <p class="title">Últimas Noticias en el Mundo del Gaming</p>
-        <a href="#" class="list_item" category="all">Todo</a>
-        <a href="#" class="list_item" category="ps">Play Station</a>
-        <a href="#" class="list_item" category="pc">Computadora</a>
-        <a href="#" class="list_item" category="xbox">Xbox</a>
+        <form method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="categoria" value="ALL">
+          <button class="category-list" type="Submit">Todo</button>
+        </form>
+        <form method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="categoria" value="PS5">
+          <button type="Submit">PlayStation</button>
+        </form>
+        <form method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="categoria" value="PC">
+          <button type="Submit">PC</button>
+        </form>
+        <form method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="categoria" value="XBOX">
+          <button type="Submit">XBox</button>
+        </form>
+        <form method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="categoria" value="Nintendo">
+          <button type="Submit">Nintendo</button>
+        </form>
+
       </aside>
       <section class="card-container">
         <div class="card card-1">
@@ -40,6 +61,12 @@
               <img 
                 class = "image"
                 src="{{post.imagen.url}}" alt="404">
+            <div class="card">
+              {% if post.imagen %}
+                <img 
+                  class = "image"
+                  src="{{post.imagen.url}}" alt="404">
+              {% endif %}
               <h4>{{post.titulo}}</h4>
               <span class="smoke"></span>
             </div>
