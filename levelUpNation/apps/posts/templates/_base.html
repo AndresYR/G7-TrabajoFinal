@@ -17,9 +17,10 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image" href="../../static/img/logo.png">
     <link rel="stylesheet" href="{% static 'css/page.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
-    <title></title>
+    <title>Level Up Nation</title>
   </head>
   <body>
     <header class="header">
@@ -29,7 +30,7 @@
         </div>
         <h2>
             {% block title %}
-
+            
             {% endblock title %}
         </h2>
         <nav class="navbar">
@@ -53,8 +54,20 @@
 
     <main class="main">
       {% block main %}
-
       {% endblock main %}
     </main>
+
+    <footer>
+      <div class="social-container">
+        <a href="https://www.facebook.com/"><ion-icon name="logo-facebook" style="color: rgb(0, 98, 255);"></ion-icon></a>
+        <a href="https://www.instagram.com"><ion-icon name="logo-instagram" style="color: #e95950"></ion-icon></a>
+        <a href="https://twitter.com"><ion-icon name="logo-twitter" style="color: lightblue;"></ion-icon></a>
+        <a href="https://youtube.com"><ion-icon name="logo-youtube" style="color: red;"></ion-icon></a>
+      </div>
+      <div class="line"></div>
+      <div class="copyright">
+        <p>Copyright © LevelUpNation, 2024. Todos los derechos reservados.</p>
+      </div>
+    </footer>
   </body>
 </html>

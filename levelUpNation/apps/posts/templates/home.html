@@ -9,41 +9,40 @@
       <aside class="wrapper category-list">
         <p class="title">Últimas Noticias en el Mundo del Gaming</p>
         <a href="#" class="list_item" category="all">Todo</a>
-        <a href="#" class="list_item" category="ps">PlayStation</a>
+        <a href="#" class="list_item" category="ps">Play Station</a>
         <a href="#" class="list_item" category="pc">Computadora</a>
         <a href="#" class="list_item" category="xbox">Xbox</a>
       </aside>
       <section class="card-container">
-        <div class="card">
+        <div class="card card-1">
+          <h4>Videojuegos</h4>
+          <p>Los ultimos juegos que puedes descargar en el mercado</p>
+          <span class="smoke"></span>
+        </div>
+        <div class="card card-2">
+          <h4>Fortnite</h4>
+          <p>Metallica llega a fortnite para quedarse y sonar en todos lados</p>
+          <span class="smoke"></span>
+        </div>
+        <div class="card card-3">
           <h4>Games</h4>
           <p>Los ultimos juegos que puedes descargar en el mercado</p>
           <span class="smoke"></span>
         </div>
-        <div class="card">
-          <h4>Games</h4>
-          <p>Los ultimos juegos que puedes descargar en el mercado</p>
-          <span class="smoke"></span>
-        </div>
-        <div class="card">
-          <h4>Games</h4>
-          <p>Los ultimos juegos que puedes descargar en el mercado</p>
-          <span class="smoke"></span>
-        </div>
-        <div class="card">
+        <div class="card card-4">
           <h4>Games</h4>
           <p>Los ultimos juegos que puedes descargar en el mercado</p>
           <span class="smoke"></span>
         </div>
         {% if latest_posts_list %}
           {% for post in latest_posts_list %}
-            <div class="card">
+            <div class="card" style="background-image: url('{{ post.imagen.url }}'); background-size: cover; background-position: center; ">
               <img 
                 class = "image"
                 src="{{post.imagen.url}}" alt="404">
               <h4>{{post.titulo}}</h4>
               <span class="smoke"></span>
             </div>
-          
           {% endfor %}
         {% endif %}
       </section>
