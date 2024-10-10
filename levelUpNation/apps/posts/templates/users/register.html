@@ -30,6 +30,7 @@
                 </div>
                 <p>o usa tu email para registrarte</p>
                 <form class="form form-register" novalidate>
+                    {% csrf_token %}
                     <div>
                         <label>
                             <i class='bx bx-user' ></i>
@@ -48,7 +49,7 @@
                             <input type="password" placeholder="Contraseña" name="userPassword">
                         </label>
                    </div>
-                   
+
                     <input type="submit" value="Registrarse">
                 </form>
             </div>

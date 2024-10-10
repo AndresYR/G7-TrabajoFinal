@@ -1,0 +1,34 @@
+{% extends '_base.html' %}
+
+{% block title %}
+  Contenido
+{% endblock title %}
+
+{% block main %}
+{% for post in posts %}
+<div class="post-content">
+    <h2 class="post-title">{{ post.titulo }}</h2> 
+    <p class="author"><strong>Autor: </strong>{{ post.autor_id }}</p>
+
+    <div class="left-side">
+        {% if post.imagen %}
+            <img src="{{ post.imagen.url }}" alt="Imagen del post">
+        {% else %}
+            <p>No hay imagen disponible</p>
+        {% endif %}
+        <p class="publishing-date"><strong>Fecha de Publicación: </strong>{{ post.fecha_publicacion }}</p>
+    </div>
+    
+    <div class="right-side">
+        <p class="content">{{ post.contenido }}</p>
+        {% for categorys in category %}
+            <p class="category"><strong>Categoría: </strong> {{ categorys.nombre }}</p>
+        {% empty %}
+            <p>No hay categorías disponibles</p>
+        {% endfor %}
+    </div>
+</div>
+{% empty %}
+<p>No hay posts disponibles.</p>
+{% endfor %}
+{% endblock main %}

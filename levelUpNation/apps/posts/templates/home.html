@@ -58,15 +58,10 @@
         {% if latest_posts_list %}
           {% for post in latest_posts_list %}
             <div class="card" style="background-image: url('{{ post.imagen.url }}'); background-size: cover; background-position: center; ">
-              <img 
-                class = "image"
-                src="{{post.imagen.url}}" alt="404">
-            <div class="card">
-              {% if post.imagen %}
-                <img 
-                  class = "image"
-                  src="{{post.imagen.url}}" alt="404">
-              {% endif %}
+              <a href="{% url 'content' %}" class="link-content {% if request.path == '/content/' %}active{% endif %}"
+              style="display: block; height: 100%; width: 100%; position: absolute; top: 0; left: 0; z-index: 1;"></a>
+              <img class = "image"
+                src="{{post.imagen.url}}" alt="404">     
               <h4>{{post.titulo}}</h4>
               <span class="smoke"></span>
             </div>
