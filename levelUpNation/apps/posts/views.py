@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.shortcuts import render
 from .models import Posts, Categorias
 
 def index(request):
@@ -10,8 +11,7 @@ def index(request):
         status = request.POST["categoria"]
         if status != "ALL":
             latest_posts_list = Posts.objects.filter(categoria__nombre=status).order_by("-fecha_publicacion")
-            # if not latest_posts_list:
-            #     return HttpResponse("La categoria seleccionada aún no tiene posteos.")
+
         
             
         
@@ -34,11 +34,15 @@ def contact(request):
     template = loader.get_template("contact_us.html")
     return HttpResponse(template.render({}, request))
 
-def content(request):
-    posts = Posts.objects.all()
-    category = Categorias.objects.all()
-    ctx = {'posts': posts,
-           'category': category
-           }
-    template = loader.get_template('posts/posts_content.html')
-    return HttpResponse(template.render(ctx, request))
+# def content(request):
+#     posts = Posts.objects.all()
+#     category = Categorias.objects.all()
+#     ctx = {'posts': posts,
+#            'category': category
+#            }
+#     template = loader.get_template('posts/posts_content.html')
+#     return HttpResponse(template.render(ctx, request))
+
+def content(request, slug_text):
+    post = Posts.objects.get(slug=slug_text)
+    return render(request, "posts/posts_content.html", {"post":post})
