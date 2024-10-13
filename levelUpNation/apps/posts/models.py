@@ -32,7 +32,7 @@ class Posts(models.Model):
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     categoria = models.ForeignKey(Categorias, on_delete=models.CASCADE)
-    imagen = models.ImageField(upload_to="posts", null=True, blank=True)
+    imagen = models.ImageField(upload_to="media/posts", null=True, blank=True)
     
     def __str__(self):
         return self.titulo
@@ -44,13 +44,13 @@ class Posts(models.Model):
         
 
 class Comentarios(models.Model):
-    fecha = models.DateTimeField(auto_now_add=True)
+    fecha_publicacion = models.DateTimeField(auto_now_add=True)
     contenido = models.TextField(max_length=250, verbose_name="Contenido")
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Posts, on_delete=models.CASCADE)
 
 
 
-# class Imagenes(models.Model):
-#     imagen = models.ImageField(upload_to="/media/posts")
-#     post = models.ForeignKey(Posts, on_delete=models.CASCADE)
+#class Imagenes(models.Model):
+#    imagen = models.ImageField(upload_to="/media/posts")
+#    post = models.ForeignKey(Posts, on_delete=models.CASCADE)
