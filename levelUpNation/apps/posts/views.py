@@ -1,7 +1,11 @@
+from django.forms import BaseModelForm
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
-from .models import Posts, Categorias
+from .models import Posts
+from django.contrib.auth.models import Group
+from django.views.generic import  CreateView
+
 
 def index(request):
     latest_posts_list = Posts.objects.order_by("-fecha_publicacion")
@@ -18,8 +22,8 @@ def index(request):
     context["latest_posts_list"] = latest_posts_list
     return HttpResponse(template.render(context, request))
 
-def post(request):
-    template = loader.get_template("posts/post.html")
+def about(request):
+    template = loader.get_template("about_us.html")
     return HttpResponse(template.render({}, request))
 
 def login(request):
