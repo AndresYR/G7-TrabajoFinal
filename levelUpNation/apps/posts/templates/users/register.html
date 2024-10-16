@@ -29,12 +29,12 @@
                     <i class='bx bxl-linkedin' ></i>
                 </div>
                 <p>o usa tu email para registrarte</p>
-<<<<<<< HEAD:levelUpNation/apps/posts/templates/register.html
+
                 <form class="form form-register" method="post">
                     {%csrf_token%}
                     {{ form.as_div }}       
-=======
-                <form class="form form-register" novalidate>
+
+                {% comment %} <form class="form form-register" novalidate>
                     {% csrf_token %}
                     <div>
                         <label>
@@ -53,9 +53,9 @@
                             <i class='bx bx-lock-alt' ></i>
                             <input type="password" placeholder="Contraseña" name="userPassword">
                         </label>
-                   </div>
+                   </div> {% endcomment %}
 
->>>>>>> c94b0a449dfa14ff5c97d1d0118ca75659f0d246:levelUpNation/apps/posts/templates/users/register.html
+
                     <input type="submit" value="Registrarse">
                 </form>
             </div>
