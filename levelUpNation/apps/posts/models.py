@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import pre_save
 
 from .utils import set_slug
+import uuid
 
 class User(AbstractUser):
     icono = models.ImageField(upload_to="media/usuarios", null=True, blank=True)
@@ -50,13 +51,18 @@ class Posts(models.Model):
 pre_save.connect(set_slug, sender= Posts)      
 
 class Comentarios(models.Model):
+    autor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="comments")
+    post = models.ForeignKey(Posts, on_delete=models.CASCADE, related_name="comments")
+    contenido = models.TextField(max_length=150, verbose_name="Contenido")
     fecha = models.DateTimeField(auto_now_add=True)
-    contenido = models.TextField(max_length=250, verbose_name="Contenido")
-    autor = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Posts, on_delete=models.CASCADE)
+    id = models.CharField(max_length=100, default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
+    def __str__(self):
+        try:
+            return f"{self.autor.username} : {self.contenido[:30]}"
+        except:
+            return f"sin autor : {self.contenido[:30]}"
 
+    class Meta:
+        ordering = ["-fecha"]
 
-# class Imagenes(models.Model):
-#     imagen = models.ImageField(upload_to="/media/posts")
-#     post = models.ForeignKey(Posts, on_delete=models.CASCADE)
