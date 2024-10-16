@@ -5,10 +5,10 @@
 {% endblock title %}
 
 {% block main %}
-{% for post in posts %}
+{% if post.titulo %}
 <div class="post-content">
     <h2 class="post-title">{{ post.titulo }}</h2> 
-    <p class="author"><strong>Autor: </strong>{{ post.autor_id }}</p>
+    <p class="author"><strong>Autor: </strong>{{ post.autor }}</p>
 
     <div class="left-side">
         {% if post.imagen %}
@@ -21,14 +21,10 @@
     
     <div class="right-side">
         <p class="content">{{ post.contenido }}</p>
-        {% for categorys in category %}
-            <p class="category"><strong>Categoría: </strong> {{ categorys.nombre }}</p>
-        {% empty %}
-            <p>No hay categorías disponibles</p>
-        {% endfor %}
+        
+        <p class="category"><strong>Categoría: </strong> {{ post.categoria }}</p>
+        
     </div>
 </div>
-{% empty %}
-<p>No hay posts disponibles.</p>
-{% endfor %}
+{% endif %}
 {% endblock main %}

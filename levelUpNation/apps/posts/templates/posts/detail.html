@@ -1,0 +1,38 @@
+{% extends '_base.html'%}
+
+
+{% block title %}  
+  Level Up Nation
+{% endblock title %}
+
+{% block main %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    {% if post.titulo %}
+    <div class="main_div"
+        {% if post.imagen %}
+        style="background:no-repeat right center url({{post.imagen.url}})"
+        {% endif %}>
+        <h2>{{ post.titulo }}</h2>
+        <p>{{ post.contenido}}</p>
+    </div>
+    <div class="feed">
+        <div class="feed_avatar">
+            <a style="background-image:url('https://picsum.photos/200');" class="userAvatar"></a>
+        </div>
+        <div class="feed_detalles">
+            <div class=" feed_meta feed_meta_owner">
+                <a href="#" class="userOnline">
+                    {{post.autor__username}}
+                </a>
+            </div>
+            <a href="#">
+                <button class="btn_comentar">
+                    Comentar
+                </button>
+            </a>
+        </div>
+
+    </div>
+    {% endif %}
+{% endblock main %}
