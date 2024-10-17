@@ -38,7 +38,7 @@ class Posts(models.Model):
     categoria = models.ForeignKey(Categorias, on_delete=models.CASCADE)
     imagen = models.ImageField(upload_to="posts", null=True, blank=True)
     slug = models.SlugField(max_length=200, null=False, blank=True, editable=False)
-    
+   
     def __str__(self):
         return self.titulo
     
@@ -65,4 +65,5 @@ class Comentarios(models.Model):
 
     class Meta:
         ordering = ["-fecha"]
+        db_table = "Comentarios"
 

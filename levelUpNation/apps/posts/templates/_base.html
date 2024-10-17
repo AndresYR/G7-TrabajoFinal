@@ -41,15 +41,16 @@
             <li><a class="navbar-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'contact' %}">Contactanos</a></li>
             <li><a href="{% url 'register' %}" class="btn-sign-up {% if request.path == '/register/' %}active{% endif %}">Registrarse</a></li>
             <li><a href="{% url 'login' %}" class="btn-sign-in {% if request.path == '/login/' %}active{% endif %}">Iniciar Sesión</a></li>
+            <li><a href="{% url 'nuevo_post' %}">Crear post</a></li>
           </ul>
-          <div class="search-container">
+          {% comment %} <div class="search-container">
             <input
               type="search"
               placeholder="Buscar tags, posts"
               class="search-input"
             />
             <button class="search-button">Buscar</button>
-          </div>
+          </div> {% endcomment %}
         </nav>
       </div>
     </header>

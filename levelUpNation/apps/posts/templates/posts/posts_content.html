@@ -17,6 +17,10 @@
             <p>No hay imagen disponible</p>
         {% endif %}
         <p class="publishing-date"><strong>Fecha de Publicación: </strong>{{ post.fecha_publicacion }}</p>
+        {% if user.id == post.autor_id %}
+            <small><a href="{% url 'modificar_post' post.pk %}">Modificar</a></small>
+            <small><a href="{% url 'eliminar_post' post.pk %}">Eliminar</a></small>
+        {% endif %}
     </div>
     
     <div class="right-side">

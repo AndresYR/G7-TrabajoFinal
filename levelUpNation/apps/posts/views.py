@@ -1,5 +1,10 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.views.generic import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy 
+
+from .form import RegistroForm, CrearForm, ModificarForm
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Posts, Comentarios
@@ -29,9 +34,15 @@ def login(request):
     template = loader.get_template("users/login.html")
     return HttpResponse(template.render({}, request))
 
-def register(request):
-    template = loader.get_template("users/register.html")
-    return HttpResponse(template.render({}, request))
+class register(CreateView):
+    form_class = RegistroForm
+    success_url = reverse_lazy("noticias")
+    template_name = "users/register.html"
+
+""" class Registro(CreateView):
+    form_class = RegistroForm
+    success_url = reverse_lazy("noticias")
+    template_name = "usuarios/registro.html" """
 
 def contact(request):
     template = loader.get_template("contact_us.html")
@@ -51,6 +62,30 @@ def content(request, slug_text):
     return render(request, "posts/posts_content.html", context)
 
 
+class CrearPost(CreateView):
+    form_class = CrearForm
+    model = Posts
+    template_name = "posts/crear_post.html"
+    success_url = reverse_lazy("inicio")
+
+    def form_valid(self, form):
+        form.instance.autor = self.request.user
+        return super().form_valid(form)
+
+
+
+class EliminarPost(DeleteView):
+    model = Posts
+    template_name = "posts/posts_confirm_delete.html"
+    success_url = reverse_lazy("inicio")
+
+
+class ModificarPost(UpdateView):
+    model = Posts
+    form_class = ModificarForm
+    template_name = "posts/modificar_post.html"
+    success_url = reverse_lazy("inicio")
+    
 def enviar_comentario(request, slug_text):
     post = Posts.objects.get(slug=slug_text)
     
