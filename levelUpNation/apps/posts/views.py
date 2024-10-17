@@ -1,10 +1,12 @@
-from django.forms import BaseModelForm
 from django.http import HttpResponse
 from django.template import loader
+from django.views.generic import CreateView
+from django.urls import reverse_lazy 
+from django.shortcuts import redirect
+from .form import RegistroForm
 from django.shortcuts import render
 from .models import Posts
-from django.contrib.auth.models import Group
-from django.views.generic import  CreateView
+from django.contrib.auth.models import Group, Permission
 
 
 def index(request):
@@ -30,9 +32,15 @@ def login(request):
     template = loader.get_template("users/login.html")
     return HttpResponse(template.render({}, request))
 
-def register(request):
-    template = loader.get_template("users/register.html")
-    return HttpResponse(template.render({}, request))
+class register(CreateView):
+    form_class = RegistroForm
+    success_url = reverse_lazy("inicio")
+    template_name = "users/register.html"
+
+""" class Registro(CreateView):
+    form_class = RegistroForm
+    success_url = reverse_lazy("noticias")
+    template_name = "usuarios/registro.html" """
 
 def contact(request):
     template = loader.get_template("contact_us.html")
@@ -50,3 +58,16 @@ def contact(request):
 def content(request, slug_text):
     post = Posts.objects.get(slug=slug_text)
     return render(request, "posts/posts_content.html", {"post":post})
+
+
+
+
+class RegistrarUsuario(CreateView):
+    template_name = 'users/register.html'
+    form_class = RegistroForm
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        group = Group.objects.get(name='Registrado')
+        self.object.groups.add(group)
+        return redirect('apps.users:register')
