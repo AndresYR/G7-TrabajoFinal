@@ -55,17 +55,16 @@
           <p>Revelan un secreto en 'The last of Us parte I'</p>
           <span class="smoke"></span>
         </div>
-        {% if latest_posts_list %}
           {% for post in latest_posts_list %}
+          <a href="{% url 'content' post.slug %}">
             <div class="card" style="background-image: url('{{ post.imagen.url }}'); background-size: cover; background-position: center; ">
-              <a href="{% url 'content' %}" class="link-content {% if request.path == '/content/' %}active{% endif %}"
-              style="display: block; height: 100%; width: 100%; position: absolute; top: 0; left: 0; z-index: 1;"></a>
-              <img class = "image"
-                src="{{post.imagen.url}}" alt="404">     
-              <h4>{{post.titulo}}</h4>
-              <span class="smoke"></span>
-            </div>
+                <h4>{{post.titulo}}</h4>
+                <span class="smoke"></span>
+              </div>
+            </a>
+          
+          {% empty %}
+          <h2> Aún no hay posts en esta categoría.</h2>
           {% endfor %}
-        {% endif %}
       </section>
 {% endblock main %}

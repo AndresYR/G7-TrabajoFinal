@@ -1,6 +1,9 @@
 from django.db import models
 
 from django.contrib.auth.models import AbstractUser
+from django.db.models.signals import pre_save
+
+from .utils import set_slug
 
 class User(AbstractUser):
     icono = models.ImageField(upload_to="media/usuarios", null=True, blank=True)
@@ -32,8 +35,9 @@ class Posts(models.Model):
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     categoria = models.ForeignKey(Categorias, on_delete=models.CASCADE)
-    imagen = models.ImageField(upload_to="media/posts", null=True, blank=True)
-    
+    imagen = models.ImageField(upload_to="posts", null=True, blank=True)
+    slug = models.SlugField(max_length=200, null=False, blank=True, editable=False)
+   
     def __str__(self):
         return self.titulo
     
@@ -41,7 +45,9 @@ class Posts(models.Model):
         db_table = "Post"
         verbose_name = "Post"
         verbose_name_plural = "Posts"
-        
+
+# Genera un url en forma automatica
+pre_save.connect(set_slug, sender= Posts)      
 
 class Comentarios(models.Model):
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
