@@ -1,9 +1,8 @@
-{% extends 'base.html' %}
-{% block de contenido%}
-desea eliminar {{object}}
+{% extends '_base.html' %}
+{% block main %}
+Desea eliminar {{object}}?
 <form action="" method="post">
     {% csrf_token %}
-    {{form}}
     <input type="submit">
 </form>
-{% endblock contenido%}
+{% endblock main %}

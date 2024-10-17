@@ -1,5 +1,10 @@
-<form action="" method="post"
-    {% csrf_token %}
-    {{form}}
-    <input type="submit">
+{% extends '_base.html'%}
+{% block titulo%} Nuevo post {% endblock titulo %}
+
+{% block main %}
+<h2>Editar Post</h2>
+<form action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">enviar</button>
 </form>
+{% endblock main%}

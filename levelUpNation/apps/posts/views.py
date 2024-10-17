@@ -63,20 +63,22 @@ class CrearPost(CreateView):
     form_class = CrearForm
     model = Posts
     template_name = "posts/crear_post.html"
-    success_url = reverse_lazy("noticias")
+    success_url = reverse_lazy("inicio")
 
     def form_valid(self, form):
         form.instance.autor = self.request.user
         return super().form_valid(form)
 
 
+
 class EliminarPost(DeleteView):
     model = Posts
-    success_url = reverse_lazy("noticias")
+    template_name = "posts/posts_confirm_delete.html"
+    success_url = reverse_lazy("inicio")
 
 
 class ModificarPost(UpdateView):
     model = Posts
     form_class = ModificarForm
     template_name = "posts/modificar_post.html"
-    success_url = reverse_lazy("noticias")
+    success_url = reverse_lazy("inicio")

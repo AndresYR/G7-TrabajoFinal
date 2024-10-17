@@ -52,6 +52,7 @@ class CrearForm(forms.ModelForm):
     class Meta:
         model = Posts
         exclude = ["autor"]
+        # fields = ["titulo"]
 
 
 class ModificarForm(forms.ModelForm):
