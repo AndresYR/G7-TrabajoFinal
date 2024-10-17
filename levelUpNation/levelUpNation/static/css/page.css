@@ -258,8 +258,9 @@ img {
 footer {
   text-align: center;
   background-color: #000000a5;
-  height: 250px;
+  height: 360px;
   width: 100%;
+  margin-top: 10px;
 }
 
 .social-container {

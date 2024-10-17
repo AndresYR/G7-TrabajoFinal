@@ -2,11 +2,12 @@ from django.http import HttpResponse
 from django.template import loader
 from django.views.generic import CreateView
 from django.urls import reverse_lazy 
-
+from django.shortcuts import redirect
 from .form import RegistroForm
-
 from django.shortcuts import render
-from .models import Posts, Categorias
+from .models import Posts
+from django.contrib.auth.models import Group, Permission
+
 
 def index(request):
     latest_posts_list = Posts.objects.order_by("-fecha_publicacion")
@@ -23,8 +24,8 @@ def index(request):
     context["latest_posts_list"] = latest_posts_list
     return HttpResponse(template.render(context, request))
 
-def post(request):
-    template = loader.get_template("posts/post.html")
+def about(request):
+    template = loader.get_template("about_us.html")
     return HttpResponse(template.render({}, request))
 
 def login(request):
@@ -33,7 +34,7 @@ def login(request):
 
 class register(CreateView):
     form_class = RegistroForm
-    success_url = reverse_lazy("noticias")
+    success_url = reverse_lazy("inicio")
     template_name = "users/register.html"
 
 """ class Registro(CreateView):
@@ -57,3 +58,16 @@ def contact(request):
 def content(request, slug_text):
     post = Posts.objects.get(slug=slug_text)
     return render(request, "posts/posts_content.html", {"post":post})
+
+
+
+
+class RegistrarUsuario(CreateView):
+    template_name = 'users/register.html'
+    form_class = RegistroForm
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        group = Group.objects.get(name='Registrado')
+        self.object.groups.add(group)
+        return redirect('apps.users:register')
