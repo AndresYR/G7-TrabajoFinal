@@ -8,14 +8,13 @@ class RegistroForm(UserCreationForm):
         max_length=200,
         widget=forms.TextInput(
             attrs={"class": "form-control", "placeholder": "Nombre de usuario"},
-        ),
+        ), required=True
     )
     email = forms.EmailField(
         max_length=200,
-        help_text="Required",
         widget=forms.EmailInput(
             attrs={"class": "form-control", "placeholder": "name@example.com"}
-        ),
+        ), required=True
     )
     password1 = forms.CharField(
         widget=forms.PasswordInput(attrs={"class": "form-control"}), required=True

@@ -162,7 +162,27 @@ body {
     background-color: #7a7a9a;
 }
 
+.form-register {
+    width: 90%;
+    margin: 0 auto;
+}
 
+.form-register div {
+    font-size: 14px;
+}
+
+.form-register div input {
+    margin: 0 auto;
+}
+
+#id_email_helptext {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+    margin-left: 3px;
+    margin-right: 3px;
+}
 
 
 /* Respoinsive Form */

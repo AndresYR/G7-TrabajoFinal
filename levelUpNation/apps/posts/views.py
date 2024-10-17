@@ -8,7 +8,9 @@ from .form import RegistroForm, CrearForm, ModificarForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Posts, Comentarios
-from .form import ComentarioForm
+from .form import ComentarioForm, RegistroForm
+from django.contrib.auth.models import Group, Permission
+
 
 
 def index(request):
@@ -26,8 +28,8 @@ def index(request):
     context["latest_posts_list"] = latest_posts_list
     return HttpResponse(template.render(context, request))
 
-def post(request):
-    template = loader.get_template("posts/post.html")
+def about(request):
+    template = loader.get_template("about_us.html")
     return HttpResponse(template.render({}, request))
 
 def login(request):
@@ -36,7 +38,7 @@ def login(request):
 
 class register(CreateView):
     form_class = RegistroForm
-    success_url = reverse_lazy("noticias")
+    success_url = reverse_lazy("inicio")
     template_name = "users/register.html"
 
 """ class Registro(CreateView):
@@ -126,3 +128,15 @@ def editar_comentario(request, pk):
     context["form_comentario"] = form
     
     return render(request, "comentarios/update_comment.html", context)
+
+
+
+class RegistrarUsuario(CreateView):
+    template_name = 'users/register.html'
+    form_class = RegistroForm
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        group = Group.objects.get(name='Registrado')
+        self.object.groups.add(group)
+        return redirect('apps.users:register')

@@ -72,13 +72,15 @@
                             <p> {{comentario.contenido}} </p>
                             <p>{{comentario.pk}}</p>
                             {% comment %} {% if user.is_autenticated and comentario.autor == user %} {% endcomment %}
-                            <div class="menu-comentario">
-                                <i class="fas fa-pen"></i>                                
-                                    <ul class="menu">                                       
-                                            <li><a href="{% url "editar_comentario" comentario.id %}">Editar</a></li>                                   
-                                            <li><a href="{% url "borrar_comentario" comentario.id %}">Eliminar</a></li>                                      
-                                    </ul>                            
-                            </div>
+                            {% if user.id == comentario.autor_id %}
+                                <div class="menu-comentario">
+                                    <i class="fas fa-pen"></i>                                
+                                        <ul class="menu">                                       
+                                                <li><a href="{% url "editar_comentario" comentario.id %}">Editar</a></li>                                   
+                                                <li><a href="{% url "borrar_comentario" comentario.id %}">Eliminar</a></li>                                      
+                                        </ul>                            
+                                </div>
+                            {% endif %}
                             {% comment %} {% endif %} {% endcomment %}
                         </div>
                         {% comment %} <div class="botones-comentario">
