@@ -202,29 +202,6 @@ main {
 }
 
 
-.card-1 {
-  background-image: url("../../static/img/image.jpg");
-  background-size: cover;
-}
-
-.card-2 {
-  background-image: url("../../static/img/fortnite.avif");
-  background-size: cover;
-  background-position: center;
-}
-
-.card-3 {
-  background-image: url("../../static/img/fifa.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.card-4 {
-  background-image: url("../../static/img/the_last_of_us.jpeg");
-  background-size: cover;
-  background-position: center;
-}
-
 .card:hover {
   transform: scale(1.1);
 }
