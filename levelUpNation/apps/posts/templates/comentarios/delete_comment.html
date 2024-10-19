@@ -21,8 +21,8 @@
             <p>Deseas borrar este comentario?</p>
             <form method="POST">
                 {% csrf_token %}
-                <button type="submit"> Confirmar </button>
-                <a href="{{ request.META.HTTP_REFERER }}">Volver atras</a>
+                <button type="submit" class="btn-confirm"> Confirmar </button>
+                <a href="{{ request.META.HTTP_REFERER }}" class="go-back">Volver atras</a>
             </form>
         </div>
     </div>

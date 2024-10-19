@@ -16,10 +16,10 @@
         {% else %}
             <p>No hay imagen disponible</p>
         {% endif %}
-        <p class="publishing-date"><strong>Fecha de Publicación: </strong>{{ post.fecha_publicacion }}</p>
+        <p class="publishing-date"><strong>Fecha de Publicación: </strong>{{ post.fecha_publicacion }}</p><br>
         {% if user.id == post.autor_id %}
-            <small><a href="{% url 'modificar_post' post.pk %}">Modificar</a></small>
-            <small><a href="{% url 'eliminar_post' post.pk %}">Eliminar</a></small>
+            <small><a href="{% url 'modificar_post' post.pk %}" class="modify-link">Modificar</a></small><br>
+            <small><a href="{% url 'eliminar_post' post.pk %}" class="delete-link">Eliminar</a></small>
         {% endif %}
     </div>
     

@@ -1,0 +1,41 @@
+.btn-confirm {
+    background-color: red;
+    color: white;
+    height: 30px;
+    width: 85px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.btn-confirm:hover {
+    background-color: rgba(255, 0, 0, 0.881);
+}
+
+.go-back {
+    background-color: #008f8a;
+    color: white;
+    padding: 6px 20px;
+    margin: 0 auto;
+    margin-left: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.go-back:hover {
+    background-color: #008f8aaf;
+}
+
+.boton-enviar {
+    background-color: #008f8a;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.boton-enviar:hover {
+    background-color: lightseagreen;
+}
+

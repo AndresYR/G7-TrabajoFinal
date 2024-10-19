@@ -1,8 +1,15 @@
 {% extends '_base.html' %}
+{% block title%} Eliminar Post {% endblock title %}
 {% block main %}
-Desea eliminar {{object}}?
-<form action="" method="post">
+
+<div class="delete-confirm-container">
+
+        <p class="text-confirm-delte">Desea eliminar {{object}}?</p>
+
+<form action="" method="post" class="delete-confirm-post-form">
     {% csrf_token %}
-    <input type="submit">
+    <input type="submit" class="delete-confirm-send">
 </form>
+
+</div>
 {% endblock main %}
