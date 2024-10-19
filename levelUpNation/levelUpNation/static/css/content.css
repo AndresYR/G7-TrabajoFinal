@@ -1,13 +1,10 @@
-body {
-    background-color: #008f8a;
-}
-
 .post-content {
     display: grid;
     grid-template-areas: 
         "title title"
         "author author"
-        "image content";
+        "image content"
+        "comment comment";
     grid-template-columns: 1fr 2fr;
     gap: 20px;
     align-items: start;
@@ -72,4 +69,10 @@ body {
 .category {
     margin-top: 10px;
     font-weight: bold;
+}
+
+.comment {
+    grid-area: comment;
+    align-self: center;
+    justify-self: center;
 }

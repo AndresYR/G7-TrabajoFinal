@@ -12,11 +12,15 @@
 
     <div class="left-side">
         {% if post.imagen %}
-            <img src="{{ post.imagen.url }}" alt="Imagen del post">
+            <img src="{{ post.imagen.url }}" alt="404">
         {% else %}
             <p>No hay imagen disponible</p>
         {% endif %}
         <p class="publishing-date"><strong>Fecha de Publicación: </strong>{{ post.fecha_publicacion }}</p>
+        {% if user.id == post.autor_id %}
+            <small><a href="{% url 'modificar_post' post.pk %}">Modificar</a></small>
+            <small><a href="{% url 'eliminar_post' post.pk %}">Eliminar</a></small>
+        {% endif %}
     </div>
     
     <div class="right-side">
@@ -25,6 +29,130 @@
         <p class="category"><strong>Categoría: </strong> {{ post.categoria }}</p>
         
     </div>
+    
+    {% comment %} Comentarios {% endcomment %}
+    <section class="comment contenedor-comentarios">
+        {% if post.comments.count %}
+            <p>Comentarios: {{post.comments.count}}</p>
+            <p></p>
+        {% else %}
+            {% if user.is_autenticated %}
+                <p>Agrega un comentario</p>
+            {% endif %}
+        {% endif %}
+        <!-- Caja de comentario -->
+        <div class="area-comentar">
+            <div class="avatar">
+                <img src="https://picsum.photos/200" alt="img">
+            </div>
+            <form action="{% url 'enviar_comentario' post.slug %}" method="post" class="inputs-comentarios">
+                {% csrf_token %}
+                {{ form_comentario }}
+                <div class="botones-comentar">
+                    <button class="boton-enviar" type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!-- Fin de Caja de comentarios -->
+        <!-- Comentarios realizados -->
+        {% for comentario in post.comments.all %}
+        <!-- comentario principal -->
+        <div class="comentarios-usuarios">
+            <div class="comentario-principal-usuario">
+                <div class="avatar">
+                    <img src="https://picsum.photos/200" alt="img">
+                </div>
+                <div class="comentario">
+                    <div class="usuario-comentario">
+                        <div class="texto">
+                            <a href="#" title="" class="nombre-usuario">{{comentario.autor.username}}</a> 
+                            <p> {{comentario.contenido}} </p>
+                            <p>{{comentario.pk}}</p>
+                            {% comment %} {% if user.is_autenticated and comentario.autor == user %} {% endcomment %}
+                            {% if user.id == comentario.autor_id %}
+                                <div class="menu-comentario">
+                                    <i class="fas fa-pen"></i>                                
+                                        <ul class="menu">                                       
+                                                <li><a href="{% url "editar_comentario" comentario.id %}">Editar</a></li>                                   
+                                                <li><a href="{% url "borrar_comentario" comentario.id %}">Eliminar</a></li>                                      
+                                        </ul>                            
+                                </div>
+                            {% endif %}
+                            {% comment %} {% endif %} {% endcomment %}
+                        </div>
+                        {% comment %} <div class="botones-comentario">
+                            <button type="" class="boton-puntuar">
+                                <i class="fas fa-heart"></i>
+                                5
+                            </button>
+                            <button type="" class="boton-responder">
+                                responrder
+                            </button>
+                            <span class="tiempo-comentario">
+                                hece 3 min
+                            </span>
+                        </div> {% endcomment %}
+                    </div>
+                    
+                    <!-- contenedor sub comentarios -->
+                    {% comment %} <div class="contenedor-sub-comentarios">
+                        <!-- sub-comentario uno -->
+                        <div class="comentario-principal-usuario">
+                            <div class="avatar">
+                                <img src="https://picsum.photos/200" alt="img">
+                            </div>
+                            <div class="comentario">
+                                <div class="usuario-comentario">
+                                    <div class="texto">
+                                        <a href="#" title="" class="nombre-usuario">Estevan Hernandez</a> Lorem ipsum dolor sit amet adipisicing elit, sed do eiusmod
+                                        <div class="menu-comentario">
+                                            <i class="fas fa-pen"></i>
+                                            <ul class="menu">
+                                                <li><a href="">Editar</a></li>
+                                                <li><a href="">Eliminar</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="botones-comentario">
+                                        <button type="" class="boton-puntuar">
+                                            <i class="fas fa-heart"></i>
+                                            12
+                                        </button>
+                                        <button type="" class="boton-responder">
+                                            Responder
+                                            <i class="fas fa-reply"></i>
+                                        </button>
+                                        <span class="tiempo-comentario">
+                                            hece 3 min
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+
+                </div>
+                {% endfor %}
+            </div>
+            {% comment %} Otra Caja de comentarios {% endcomment %}
+            {% comment %} <div class="comentar-publicacion">
+                <div class="avatar">
+                    <img src="https://picsum.photos/200" alt="img">
+                </div>
+            <form action="#" method="post" class="comentar-comentario">
+                <input type="text" name="" value="" placeholder="">
+                <button type="" class="boton-enviar">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+            </div> {% endcomment %}
+            
+        </div>
+        
+    </section>
 </div>
 {% endif %}
 {% endblock main %}

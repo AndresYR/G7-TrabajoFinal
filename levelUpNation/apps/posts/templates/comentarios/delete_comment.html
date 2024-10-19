@@ -1,0 +1,31 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    Elimitar comentario
+{% endblock title %}
+
+{% block main %}
+
+<div class="comment contenedor-comentarios">
+    <div class="comentario-principal-usuario">
+        <div class="avatar">
+            <img src="https://picsum.photos/200" alt="img">
+        </div>
+        <div class="comentario">
+            <div class="usuario-comentario">
+                <div class="texto">
+                    <a href="#" title="" class="nombre-usuario">{{comentario.autor.username}}</a> 
+                    <p> {{comentario.contenido}} </p>                
+                </div>
+            </div>
+            <p>Deseas borrar este comentario?</p>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit"> Confirmar </button>
+                <a href="{{ request.META.HTTP_REFERER }}">Volver atras</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}
