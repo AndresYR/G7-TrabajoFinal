@@ -1,10 +1,17 @@
 {% extends '_base.html'%}
-{% comment %} {% block titulo%} Nuevo post {% endblock titulo %} {% endcomment %}
+{% block title%} Nuevo post {% endblock title %}
 
 {% block main %}
+{% if user.id == post.autor_id or user.is_superuser %}
 <h2>Agregar Post</h2>
-<form action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+<form action="" method="POST" enctype="multipart/form-data" class="form-post"> {% csrf_token %}
     {{form.as_p}}
-    <button type="submit">enviar</button>
+    <button type="submit" class="send-post">Enviar</button>
 </form>
+
+{% else %}
+<p class="error">No tienes permisos suficientes para publicar un Post</p>
+
+{% endif %}
+
 {% endblock main%}

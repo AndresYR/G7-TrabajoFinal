@@ -1,12 +1,15 @@
 .form-container-contact {
     display: flex;
-    background-color: grey;
-    border-radius: 20px;
-    box-shadow: 0 5px 7px ;
-    height: 500px;
-    width: 700px;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #008f8a;
+    border-radius: 20px;
+    box-shadow: 0 5px 7px;
+    height: 500px;
+    width: 700px;
+    margin-left: 300px;
+    margin-top: 20px;
 }
 
 .form-title {

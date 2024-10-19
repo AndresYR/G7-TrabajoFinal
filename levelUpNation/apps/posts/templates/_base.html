@@ -22,6 +22,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/content.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/posts.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/comments.css' %}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Level Up Nation</title>
   </head>
@@ -48,14 +50,14 @@
                     {%csrf_token%}
                     <button type="submit" class="btn-logout">Salir</button>
                 </form>
-                <li><a href="{% url 'nuevo_post' %}">Crear post</a></li>
+                <li><a href="{% url 'nuevo_post' %}" class="link-post"><i class="far fa-plus-circle"></i>   Post</a></li>
               </div>
               {%else%}
               <li><a href="{% url 'register' %}" class="btn-sign-up {% if request.path == '/register/' %}active{% endif %}">Registrarse</a></li>
               <li><a href="{% url 'login' %}" class="btn-sign-in  {% if request.path == '/login/' %}active{% endif %}">Iniciar
                   sesion</a></li>
               {% endif %}
-            </li>
+            </li>                      
           </ul>
           {% comment %} <div class="search-container">
             <input
@@ -65,7 +67,6 @@
             />
             <button class="search-button">Buscar</button>
           </div> {% endcomment %}
-        </nav>
       </div>
     </header>
 

@@ -6,6 +6,7 @@
 }
 
 body {
+  min-height: 100vh;
   background-image: url(../img/background.webp);
   color: black;
   font-family: "Montserrat", sans-serif;
@@ -28,6 +29,9 @@ header {
   background-color: #333;
   color: white;
   padding: 15px 0;
+  align-items: center;
+  width: 100%;
+  align-items: flex-end;
 }
 
 .container-information {
@@ -44,6 +48,7 @@ header {
   align-items: center;
   width: 70%;
 }
+
 
 h2 {
   font: 1.5rem;
@@ -103,8 +108,10 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0 auto;
+  margin-top: 0;
   width: 100px;
+  margin-left: auto;
+  padding: 0;
 }
 
 .search-input {
@@ -142,13 +149,36 @@ h2 {
   margin-left: 150px;
 }
 
+.link-post {
+  background-color: #008f8a;
+  text-decoration: none;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin: 0 auto;
+}
+
+.add-post {
+  color: white;
+}
+
+.link-post:hover {
+  background-color: #00b5ad;
+}
+
+
+
 /* MAIN */
 main {
   margin: 0 auto;
   padding: 15px;
   width: 85vw;
   display: flex;
-  height: auto;
+  min-height: 80vh;
+  flex: 1;
 }
 
 .wrapper {
@@ -202,29 +232,6 @@ main {
 }
 
 
-.card-1 {
-  background-image: url("../../static/img/image.jpg");
-  background-size: cover;
-}
-
-.card-2 {
-  background-image: url("../../static/img/fortnite.avif");
-  background-size: cover;
-  background-position: center;
-}
-
-.card-3 {
-  background-image: url("../../static/img/fifa.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.card-4 {
-  background-image: url("../../static/img/the_last_of_us.jpeg");
-  background-size: cover;
-  background-position: center;
-}
-
 .card:hover {
   transform: scale(1.1);
 }
@@ -236,6 +243,10 @@ main {
   margin-inline: auto;
   margin-top: 20px;
   gap: 30px;
+}
+
+.card-container a {
+  text-decoration: none;
 }
 
 img {
@@ -261,7 +272,6 @@ img {
 footer {
   text-align: center;
   background-color: #000000a5;
-  height: 360px;
   width: 100%;
   margin-top: 10px;
 }
@@ -284,6 +294,7 @@ footer {
   margin-top: 75px;
   text-align: center;
   color: #ffffff;
+  padding: 20px;
 }
 
 .social-container a ion-icon {
@@ -303,7 +314,9 @@ footer {
   margin: 0 auto;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
+  height: auto;
+  margin-bottom: 50px;
 }
 
 .contenedor-comentarios img {
@@ -597,7 +610,7 @@ footer {
 }
 
 @media screen and (max-width:750px) {
-  html {
+  body {
       font-size: 15px;
   }
   .navbar {
@@ -608,7 +621,7 @@ footer {
 }
 
 @media screen and (max-width:580px) {
-  html {
+  body {
       font-size: 10px;
   }
 } 

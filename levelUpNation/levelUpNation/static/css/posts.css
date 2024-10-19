@@ -1,0 +1,149 @@
+.form-post {
+    box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
+    height: 62              0px;
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: block;
+    background-color: #008f8a;
+    border-radius: 20px;
+}
+
+.form-post p {
+    padding: 10px;
+    margin: 10px;
+}
+
+label {
+    color: white;
+    font-size: 20px;
+    justify-content: center;
+    padding: 10px;
+}
+
+#id_titulo {
+    border-radius: 10px;
+    height: 40px;
+    width: 200px;
+}
+
+#id_contenido {
+    margin-top: 4px;
+    width: 500px;
+    margin-top: 20px;
+}
+
+#id_categoria {
+    height: 20px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+#id_imagen {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 160px;
+    margin-top: 10px;
+}
+
+
+.send-post {
+    height: 60px;
+    width: 95px;
+    border-radius: 10px;
+    background-color: lightblue;
+    color: black;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.send-post:hover {
+    background-color: rgba(173, 216, 230, 0.587)
+}
+
+.error {
+    font-size: 50px;
+    font-weight: 700;
+    color: red;
+    justify-content: flex-start;
+}
+
+
+.modify-link, .delete-link {
+    background-color: #008f8a;
+    padding: 3px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.delete-link:hover {
+    background-color: #008f8ac8;
+}
+
+.modify-link:hover {
+    background-color: #008f8ac8;
+}
+
+
+.modify-form-post {
+    box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
+    height: 400px;
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: block;
+    background-color: #008f8a;
+    border-radius: 20px;
+}
+
+.confirm-modify-post {
+    height: 60px;
+    width: 95px;
+    border-radius: 10px;
+    background-color: lightblue;
+    color: black;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.confirm-modify-post:hover {
+    background-color: green
+}
+
+
+.delete-confirm-container {
+    box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
+    height: 400px;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: block;
+    background-color: #008f8a;
+    border-radius: 20px;
+}
+
+.text-confirm-delte {
+    color: white;
+    padding: 50px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.delete-confirm-send {
+    height: 60px;
+    width: 95px;
+    border-radius: 10px;
+    background-color: lightblue;
+    color: black;
+    font-size: 20px;
+}
+
+.delete-confirm-send:hover {
+    background-color: red;
+}

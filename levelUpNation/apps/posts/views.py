@@ -17,6 +17,19 @@ def index(request):
     latest_posts_list = Posts.objects.order_by("-fecha_publicacion")
     template = loader.get_template("home.html")
     context = {"title":"Level Up Nation"}
+    
+    if request.GET:
+        status = request.GET["filtro"]
+        if status == "Alfabeto":
+            latest_posts_list = Posts.objects.order_by("-titulo")
+        elif status == "Autor":
+            autor = request.user
+            if autor:
+                latest_posts_list = Posts.objects.filter(autor__username=autor).order_by("-fecha_publicacion")
+            
+            
+    
+    # Filtro por categoria
     if request.POST:
         status = request.POST["categoria"]
         if status != "ALL":
@@ -38,7 +51,7 @@ def login(request):
 
 class register(CreateView):
     form_class = RegistroForm
-    success_url = reverse_lazy("inicio")
+    success_url = reverse_lazy("login")
     template_name = "users/register.html"
 
 """ class Registro(CreateView):

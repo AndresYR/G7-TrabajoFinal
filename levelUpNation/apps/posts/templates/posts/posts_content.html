@@ -17,7 +17,7 @@
             <p>No hay imagen disponible</p>
         {% endif %}
         <p class="publishing-date"><strong>Fecha de Publicación: </strong>{{ post.fecha_publicacion }}</p>
-        {% if user.id == post.autor_id %}
+        {% if user.id == post.autor_id or user.is_superuser %}
             <small><a href="{% url 'modificar_post' post.pk %}">Modificar</a></small>
             <small><a href="{% url 'eliminar_post' post.pk %}">Eliminar</a></small>
         {% endif %}
@@ -72,7 +72,7 @@
                             <p> {{comentario.contenido}} </p>
                             <p>{{comentario.pk}}</p>
                             {% comment %} {% if user.is_autenticated and comentario.autor == user %} {% endcomment %}
-                            {% if user.id == comentario.autor_id %}
+                            {% if user.id == comentario.autor_id or user.is_superuser %}
                                 <div class="menu-comentario">
                                     <i class="fas fa-pen"></i>                                
                                         <ul class="menu">                                       
