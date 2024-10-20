@@ -307,12 +307,12 @@
 
 
 @media (max-width: 768px) {
-    .area-comentar {
-        width: 450px;
-        height: auto;
-    }
+  .area-comentar {
+    width: 350px;
+    height: 200px;
+  }
 
-    #id_contenido {
-        width: 330px;
-    }
+  #id_contenido {
+    width: 300px;
+  }
 }
