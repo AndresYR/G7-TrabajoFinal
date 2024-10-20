@@ -1,6 +1,6 @@
 .form-post {
     box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
-    height: 62              0px;
+    height: 620px;
     width: 600px;
     justify-content: center;
     align-items: center;
@@ -128,7 +128,7 @@ label {
     border-radius: 20px;
 }
 
-.text-confirm-delte {
+.text-confirm-delete {
     color: white;
     padding: 50px;
     font-size: 20px;
@@ -146,4 +146,33 @@ label {
 
 .delete-confirm-send:hover {
     background-color: red;
+}
+
+@media (max-width: 768px) {
+    .form-post {
+        display: block;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 100vh;
+        height: auto;
+        width: auto;
+    }
+
+    .tilte-add-post {
+        display:none
+    }
+
+    .send-post {
+        font-size: 16px;
+        height: 60px;
+        margin: 10px;
+    }
+
+    .text-add-post {
+        right: 0;
+    }
+
+    .text-confirm-delete {
+        margin-left: 0;
+    }
 }
