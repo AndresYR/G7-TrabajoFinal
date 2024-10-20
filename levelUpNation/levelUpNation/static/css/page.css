@@ -213,8 +213,8 @@ main {
   color: #fff;
   width: 100%;
   max-width: 300px;
-  display: inline-block;
-  display: inline;
+  display: block;
+  flex-direction: column;
   width: 40%;
   padding: 8px 1px;
   margin-top: 10px;
@@ -384,14 +384,16 @@ footer {
     top: 0;
     left: 0; 
     width: 100vw;
-    height: 450px;
+    height: 520px;
     background-color: #333;
     z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .username{
     margin-left: 0;
-    margin-right: 10px;
     padding: 10px 0;
   }
 
@@ -416,6 +418,9 @@ footer {
 
   .navbar-link, .btn-sign-up, .btn-sign-in{
     display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     max-width: 100vw;
     text-align: center;
@@ -436,7 +441,9 @@ footer {
     background-color: #008f8a;
     border-radius: 10px;
     justify-content: center;
-    margin-left: 270px;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 220px;
   }
 
   .close-menu:hover {
@@ -450,11 +457,19 @@ footer {
   }
 
   .user-info {
-    margin-left: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
   }
 
   .link-post {
-    margin-left: 50px;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   margin-left: 16px;
   }
 
   .card {
@@ -466,8 +481,9 @@ footer {
     font-size: 13px;
   }
 
-  .category-list {
-    width: 320px;
-  }
+  .category-list button {
+    width: 100px;
+    margin-right: 50px;
+    }
 
 }

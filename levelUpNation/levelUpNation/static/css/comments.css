@@ -307,12 +307,32 @@
 
 
 @media (max-width: 768px) {
-    .area-comentar {
-        width: 450px;
-        height: auto;
-    }
+  .area-comentar {
+    width: 350px;
+    height: 150px;
+  }
 
-    #id_contenido {
-        width: 330px;
-    }
+  #id_contenido {
+    width: 200px;
+    margin-top: 20px;
+  }
+
+  .comentario-principal-usuario {
+    width: 300px;
+  }
+
+  .nombre-usuario {
+    text-decoration: none;
+    color: black;
+    margin-left: 10px;
+  }
+
+  p {
+    margin-left: 10px;
+    padding: 0px;
+  }
+
+  .btn-confirm {
+    margin-left: 10px;
+  }
 }

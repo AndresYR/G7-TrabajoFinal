@@ -35,11 +35,13 @@
             <p>Comentarios: {{post.comments.count}}</p>
             <p></p>
         {% else %}
-            {% if user.is_autenticated %}
+        {% if user.is_authenticated or user.is_superuser %}
                 <p>Agrega un comentario</p>
             {% endif %}
         {% endif %}
         <!-- Caja de comentario -->
+         
+        {% if user.is_authenticated or user.is_superuser %} 
         <div class="area-comentar">
             <div class="avatar">
                 <img src="https://picsum.photos/200" alt="img">
@@ -51,10 +53,11 @@
                     <button class="boton-enviar" type="submit">
                         <i class="fas fa-paper-plane"></i>
                         Enviar
-                    </button>
+                    </button>  
                 </div>
             </form>
         </div>
+        {% endif %}
         <!-- Fin de Caja de comentarios -->
         <!-- Comentarios realizados -->
         {% for comentario in post.comments.all %}
@@ -70,7 +73,7 @@
                             <a href="#" title="" class="nombre-usuario">{{comentario.autor.username}}</a> 
                             <p> {{comentario.contenido}} </p>
                             <p>{{comentario.pk}}</p>
-                            {% comment %} {% if user.is_autenticated and comentario.autor == user %} {% endcomment %}
+                            {% comment %} {% if user.is_authenticated and comentario.autor == user %} {% endcomment %}
                             {% if user.id == comentario.autor_id or user.is_superuser %}
                                 <div class="menu-comentario">
                                     <i class="fas fa-pen"></i>                                

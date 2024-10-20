@@ -29,15 +29,16 @@ label {
 }
 
 #id_contenido {
-    margin-top: 4px;
-    width: 500px;
-    margin-top: 20px;
+    width: 400px;
+    margin-top: 0px;
 }
+
 
 #id_categoria {
     height: 20px;
-    width: 100px;
+    width: 70px;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 #id_imagen {
@@ -45,7 +46,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 160px;
+    margin-left: 80px;
     margin-top: 10px;
 }
 
@@ -174,5 +175,9 @@ label {
 
     .text-confirm-delete {
         margin-left: 0;
+    }
+
+    .error {
+        font-size: 15px;
     }
 }
