@@ -8,26 +8,25 @@
 {% if post.titulo %}
 <div class="post-content">
     <h2 class="post-title">{{ post.titulo }}</h2> 
-    <p class="author"><strong>Autor: </strong>{{ post.autor }}</p>
 
+    <p class="author"><strong>Autor: </strong>{{ post.autor }}</p>
+ 
     <div class="left-side">
         {% if post.imagen %}
             <img src="{{ post.imagen.url }}" alt="404">
         {% else %}
             <p>No hay imagen disponible</p>
         {% endif %}
-        <p class="publishing-date"><strong>Fecha de Publicación: </strong>{{ post.fecha_publicacion }}</p>
+        <p class="publishing-date"><strong>Fecha de Publicación: </strong>{{ post.fecha_publicacion }}</p><br>
+        <p class="category"><strong>Categoría: </strong> {{ post.categoria }}</p><br>
         {% if user.id == post.autor_id or user.is_superuser %}
-            <small><a href="{% url 'modificar_post' post.pk %}">Modificar</a></small>
-            <small><a href="{% url 'eliminar_post' post.pk %}">Eliminar</a></small>
+            <small><a href="{% url 'modificar_post' post.pk %}" class="modify-link">Modificar</a></small><br>
+            <small><a href="{% url 'eliminar_post' post.pk %}" class="delete-link">Eliminar</a></small><br>
         {% endif %}
     </div>
     
     <div class="right-side">
         <p class="content">{{ post.contenido }}</p>
-        
-        <p class="category"><strong>Categoría: </strong> {{ post.categoria }}</p>
-        
     </div>
     
     {% comment %} Comentarios {% endcomment %}

@@ -49,7 +49,7 @@ def login(request):
     template = loader.get_template("users/login.html")
     return HttpResponse(template.render({}, request))
 
-class register(CreateView):
+class Register(CreateView):
     form_class = RegistroForm
     success_url = reverse_lazy("login")
     template_name = "users/register.html"

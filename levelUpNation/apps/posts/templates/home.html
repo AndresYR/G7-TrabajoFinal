@@ -31,7 +31,7 @@
           {% csrf_token %}
           <input type="hidden" name="categoria" value="Nintendo">
           <button type="Submit">Nintendo</button>
-        </form>
+        </form><br>
         <p>Ordenar por:</p>
         <form method="GET">
           <input type="hidden" name="filtro" value="Orden">
@@ -39,7 +39,7 @@
         </form>
         <form method="GET">
           <input type="hidden" name="filtro" value="Alfabeto">
-          <button type="Submit">Alfabeticamente</button>
+          <button type="Submit">Alfabeto</button>
         </form>
         {% if user.is_authenticated %}
           <form method="GET">

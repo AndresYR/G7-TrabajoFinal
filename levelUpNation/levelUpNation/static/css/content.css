@@ -71,10 +71,47 @@
 .category {
     margin-top: 10px;
     font-weight: bold;
+    color: white;
+    margin-top: 0;
 }
 
 .comment {
     grid-area: comment;
     align-self: center;
     justify-self: center;
+}
+
+
+
+@media (max-width: 768px) {
+    .post-title {
+        display: block;
+        font-size: 15px;
+    }
+    
+    .author {
+        font-size: 13px;
+    }
+
+    .left-side img {
+        height: 200px;
+        margin-top: 65px;
+    }
+
+    .content {
+        display: block;
+        font-size: 13px;
+    }
+    
+    .category {
+        color: white;
+        font-size: 10px;
+        justify-content: flex-start;
+    }
+
+    .publishing-date {
+        font-size: 12px;
+    }
+
+    
 }

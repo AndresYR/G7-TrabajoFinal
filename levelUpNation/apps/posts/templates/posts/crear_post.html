@@ -3,7 +3,7 @@
 
 {% block main %}
 {% if user.id == post.autor_id or user.is_superuser %}
-<h2>Agregar Post</h2>
+<h2 class="tilte-add-post">Agregar Post</h2>
 <form action="" method="POST" enctype="multipart/form-data" class="form-post"> {% csrf_token %}
     {{form.as_p}}
     <button type="submit" class="send-post">Enviar</button>
