@@ -76,8 +76,16 @@ textarea {
 
 @media (max-width: 768px) {
     .form-container-contact {
-        margin: 0 auto;
+        margin: 10px auto;
         width: 100vh;
         height: auto;
+    }
+
+    .form label{
+        width: 300px;
+    }
+
+    .contact-btn {
+        margin: 10px;
     }
 }
