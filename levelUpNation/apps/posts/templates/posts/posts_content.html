@@ -19,7 +19,7 @@
         {% endif %}
         <p class="publishing-date"><strong>Fecha de Publicación: </strong>{{ post.fecha_publicacion }}</p><br>
         <p class="category"><strong>Categoría: </strong> {{ post.categoria }}</p><br>
-        {% if user.id == post.autor_id %}
+        {% if user.id == post.autor_id or user.is_superuser %}
             <small><a href="{% url 'modificar_post' post.pk %}" class="modify-link">Modificar</a></small><br>
             <small><a href="{% url 'eliminar_post' post.pk %}" class="delete-link">Eliminar</a></small><br>
         {% endif %}
@@ -71,7 +71,7 @@
                             <p> {{comentario.contenido}} </p>
                             <p>{{comentario.pk}}</p>
                             {% comment %} {% if user.is_autenticated and comentario.autor == user %} {% endcomment %}
-                            {% if user.id == comentario.autor_id %}
+                            {% if user.id == comentario.autor_id or user.is_superuser %}
                                 <div class="menu-comentario">
                                     <i class="fas fa-pen"></i>                                
                                         <ul class="menu">                                       

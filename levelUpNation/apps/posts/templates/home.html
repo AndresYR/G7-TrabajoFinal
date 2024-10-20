@@ -31,8 +31,23 @@
           {% csrf_token %}
           <input type="hidden" name="categoria" value="Nintendo">
           <button type="Submit">Nintendo</button>
+        </form><br>
+        <p>Ordenar por:</p>
+        <form method="GET">
+          <input type="hidden" name="filtro" value="Orden">
+          <button type="Submit">Fecha</button>
         </form>
-
+        <form method="GET">
+          <input type="hidden" name="filtro" value="Alfabeto">
+          <button type="Submit">Alfabeto</button>
+        </form>
+        {% if user.is_authenticated %}
+          <form method="GET">
+            <input type="hidden" name="filtro" value="Autor">
+            <button type="Submit">Autor</button>
+          </form>
+        {% endif %}
+        
       </aside>
       <section class="card-container">
           {% for post in latest_posts_list %}
