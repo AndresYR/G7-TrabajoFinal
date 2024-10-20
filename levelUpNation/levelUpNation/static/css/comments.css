@@ -312,10 +312,10 @@
     height: 150px;
   }
 
-  #id_contenido {
+  /* #id_contenido {
     width: 200px;
     margin-top: 20px;
-  }
+  } */
 
   .comentario-principal-usuario {
     width: 300px;
@@ -329,6 +329,7 @@
 
   p {
     margin-left: 10px;
+    padding: 0px;
   }
 
   .btn-confirm {
