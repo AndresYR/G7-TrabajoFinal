@@ -1,4 +1,4 @@
-
+![image](https://github.com/user-attachments/assets/ab791599-c421-42dd-9b24-874a04ef5684)
 # Blog - LevelUp Nation
 
 ### Informatorio - 1º Cohorte 2024 - Etapa 2 - Comision 5 - Grupo 3
@@ -18,8 +18,9 @@ Este proyecto consiste en el desarrollo de una aplicación web utilizando el fra
 - [Django](https://www.djangoproject.com/)
 
 
-## Demo
+## Video
 
-- [Presentación](https://www.youtube.com/)
+- [Presentación](https://youtu.be/hpPBglagj1g?si=A5AVhOIaQK2YqbiI)
+  
 
 
