@@ -15,6 +15,9 @@ Este proyecto consiste en el desarrollo de una aplicación web utilizando el fra
 
 - [Python](https://www.python.org/)
 - [Django](https://www.djangoproject.com/)
+- [HTML](https://developer.mozilla.org/es/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/es/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
 ## Video
